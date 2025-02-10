@@ -23,6 +23,11 @@
  * 
 */
 
+// Select the navbar list element
+const navbarList = document.getElementById('navbar__list');
+
+// Select all sections in the main content
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -40,8 +45,57 @@
 
 // build the nav
 
+// Loop through each section to create navigation items
+sections.forEach(section => {
+    // Get the data-nav attribute value
+    const sectionName = section.getAttribute('data-nav');
+    
+    // Create a new list item (li) element
+    const listItem = document.createElement('li');
+    
+    // Create a new anchor (a) element
+    const anchor = document.createElement('a');
+    
+    // Set the anchor's text content and href attribute
+    anchor.textContent = sectionName;
+    anchor.href = `#${section.id}`; // Link to the section by its ID
+    
+    // Add a class to the anchor for styling (optional)
+    anchor.classList.add('menu__link');
+    
+    // Append the anchor to the list item
+    listItem.appendChild(anchor);
+    
+    // Append the list item to the navbar list
+    navbarList.appendChild(listItem);
+});
+
 
 // Add class 'active' to section when near top of viewport
+
+
+// Function to highlight the active section
+
+
+function highlightActiveSection() {
+    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+
+        // Check if the section is in the viewport
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Remove active class from all sections
+            sections.forEach(sec => sec.classList.remove('active'));
+            // Add active class to the current section
+            section.classList.add('active');
+        }
+    });
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', highlightActiveSection);
 
 
 // Scroll to anchor ID using scrollTO event
@@ -53,9 +107,17 @@
  * 
 */
 
-// Build menu 
-
 // Scroll to section on link click
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+     
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'  // Optional: Add smooth scrolling behavior  
+        });
+    });
+});
+
 
 // Set sections as active
 
