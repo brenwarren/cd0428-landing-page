@@ -31,14 +31,8 @@ const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
- * Start Helper Functions
  * 
-*/
-
-
-
-/**
- * End Helper Functions
+ * 
  * Begin Main Functions
  * 
 */
@@ -71,11 +65,11 @@ sections.forEach(section => {
 });
 
 
-// Add class 'active' to section when near top of viewport
-
+/** 
+ *  Add class 'active' to section when near top of viewport
+ */
 
 // Function to highlight the active section
-
 
 function highlightActiveSection() {
     let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
@@ -103,6 +97,8 @@ window.addEventListener('scroll', highlightActiveSection);
 
 /**
  * End Main Functions
+ * 
+ * 
  * Begin Events
  * 
 */
@@ -119,6 +115,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-// Set sections as active
 
 
