@@ -221,3 +221,9 @@ section.active .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+
+
+.active-nav {
+    background: #e30707;
+    color: #fff;
+}

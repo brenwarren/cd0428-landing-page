@@ -71,8 +71,46 @@ sections.forEach(section => {
 
 // Function to highlight the active section
 
+
 function highlightActiveSection() {
     let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    ////const activeNav = document.querySelector('nav a'); ///////
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+       
+
+        // Check if the section is in the viewport
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Remove active class from all sections
+            sections.forEach(sec => sec.classList.remove('active'));
+
+         
+
+            // Add active class to the current section
+            section.classList.add('active');
+
+            /////activeNav.classList.add('active-nav'); ////////
+
+
+        }
+    }); 
+
+}
+
+// Add scroll event listener
+window.addEventListener('scroll', highlightActiveSection);
+
+
+
+
+/**************
+
+
+function highlightActiveSection() {
+    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+  
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -84,12 +122,17 @@ function highlightActiveSection() {
             sections.forEach(sec => sec.classList.remove('active'));
             // Add active class to the current section
             section.classList.add('active');
+
         }
     });
 }
 
 // Add scroll event listener
 window.addEventListener('scroll', highlightActiveSection);
+
+***********/
+
+
 
 
 // Scroll to anchor ID using scrollTO event
@@ -107,10 +150,20 @@ window.addEventListener('scroll', highlightActiveSection);
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
+
+   // 1. Remove 'active-nav ' class from all navigation links
+   document.querySelectorAll('a[href^="#"]').forEach(link => link.classList.remove('active-nav'));
+
+   // 2. Add 'active-nav' class to the clicked link, so that the user knows which section was selected according to the navigation
+   this.classList.add('active-nav');
+
+
      
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'  // Optional: Add smooth scrolling behavior  
         });
+
+
     });
 });
 
