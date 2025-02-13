@@ -18,6 +18,40 @@ body {
     color: #fff;
 }
 
+/* Responsive styles */
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+@media (min-width: 600px) {
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 970px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+}
+
 
 /* Typeography General*/
 h1 {

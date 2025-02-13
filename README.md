@@ -19,5 +19,8 @@ The techniques used for the JS include: event listeners, adding classes actively
 ## Further information
 A full introduction to the project can be found here: [Udacity Project Page](https://learn.udacity.com/nanodegrees/nd0011/parts/cd0428/lessons/ls1853/concepts/5fa83930-2d88-4fbe-b745-5ebdaecdac09?_gl=1*n05klb*_gcl_au*MTk5NzEyOTgxNy4xNzMxNzkxMjU5*_ga*NTg3ODA4NDE3LjE3MzE3OTEyNTk.*_ga_CF22GKVCFK*MTczOTM4NzQ2MS4yMC4xLjE3MzkzODc0NzguNDMuMC4w&lesson_tab=lesson)
 
+# UPDATE
+
+I've added a `.container` class to the main element of the html and added responsive CSS code to the **style.css** file. 
 
 
